@@ -1,0 +1,6 @@
+framework module Pods_UberRider {
+  umbrella header "Pods-UberRider-umbrella.h"
+
+  export *
+  module * { export * }
+}
