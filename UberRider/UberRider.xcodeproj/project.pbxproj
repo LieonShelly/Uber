@@ -15,6 +15,10 @@
 		CD64CA991E82CC5000AB11D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD64CA981E82CC5000AB11D0 /* Assets.xcassets */; };
 		CD64CA9C1E82CC5000AB11D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64CA9A1E82CC5000AB11D0 /* LaunchScreen.storyboard */; };
 		CD64CAA41E82CCCC00AB11D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */; };
+		CDE9CF571E82D6CD002308CF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF561E82D6CD002308CF /* SignInViewController.swift */; };
+		CDE9CF591E82D6ED002308CF /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF581E82D6ED002308CF /* SignInViewModel.swift */; };
+		CDE9CF5D1E82DA83002308CF /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF5C1E82DA83002308CF /* Common.swift */; };
+		CDE9CF611E82E094002308CF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF601E82E094002308CF /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		CD64CA9B1E82CC5000AB11D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD64CA9D1E82CC5000AB11D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CDE9CF561E82D6CD002308CF /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CDE9CF581E82D6ED002308CF /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		CDE9CF5C1E82DA83002308CF /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		CDE9CF601E82E094002308CF /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F33F16964B29C25E5AE46CB0 /* Pods-UberRider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberRider.release.xcconfig"; path = "Pods/Target Support Files/Pods-UberRider/Pods-UberRider.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +91,10 @@
 			isa = PBXGroup;
 			children = (
 				CD64CA8E1E82CC5000AB11D0 /* AppDelegate.swift */,
+				CDE9CF4D1E82D627002308CF /* Model */,
+				CDE9CF4E1E82D627002308CF /* View */,
+				CDE9CF4F1E82D627002308CF /* ViewModel */,
+				CDE9CF5B1E82DA7A002308CF /* Vendor */,
 				CD64CA901E82CC5000AB11D0 /* ViewController.swift */,
 				CD64CA921E82CC5000AB11D0 /* Main.storyboard */,
 				CD64CA981E82CC5000AB11D0 /* Assets.xcassets */,
@@ -92,6 +104,70 @@
 				CD64CA951E82CC5000AB11D0 /* UberRider.xcdatamodeld */,
 			);
 			path = UberRider;
+			sourceTree = "<group>";
+		};
+		CDE9CF4D1E82D627002308CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CDE9CF4E1E82D627002308CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDE9CF501E82D667002308CF /* SignIn */,
+				CDE9CF511E82D667002308CF /* SignUp */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CDE9CF4F1E82D627002308CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CDE9CF521E82D691002308CF /* SignIn */,
+				CDE9CF531E82D691002308CF /* SignUp */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CDE9CF501E82D667002308CF /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CDE9CF561E82D6CD002308CF /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CDE9CF511E82D667002308CF /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CDE9CF521E82D691002308CF /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CDE9CF581E82D6ED002308CF /* SignInViewModel.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CDE9CF531E82D691002308CF /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CDE9CF5B1E82DA7A002308CF /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				CDE9CF5C1E82DA83002308CF /* Common.swift */,
+				CDE9CF601E82E094002308CF /* Extension.swift */,
+			);
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +295,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE9CF571E82D6CD002308CF /* SignInViewController.swift in Sources */,
 				CD64CA971E82CC5000AB11D0 /* UberRider.xcdatamodeld in Sources */,
+				CDE9CF611E82E094002308CF /* Extension.swift in Sources */,
 				CD64CA911E82CC5000AB11D0 /* ViewController.swift in Sources */,
 				CD64CA8F1E82CC5000AB11D0 /* AppDelegate.swift in Sources */,
+				CDE9CF5D1E82DA83002308CF /* Common.swift in Sources */,
+				CDE9CF591E82D6ED002308CF /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +467,7 @@
 				CD64CAA21E82CC5000AB11D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
