@@ -27,7 +27,7 @@ class SignInViewController: UIViewController {
     
     @IBAction func signUpAction(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return self.show(title: "Email or Password required", message: "Please enter email or password in textfield") }
-        signinVM.signup(with: email, password: password) { [unowned self] message in
+         signinVM.signup(with: email, password: password) { [unowned self] message in
             if let message = message, !message.isEmpty {
                 self.show(title: "Problem in Authentication", message: message)
             } else {
@@ -35,8 +35,7 @@ class SignInViewController: UIViewController {
             }
         }
     }
-    
     private func showRiderVC() {
-        self.performSegue(withIdentifier: "RiderHome", sender: nil)
+        self.performSegue(withIdentifier: "DriverHome", sender: nil)
     }
 }

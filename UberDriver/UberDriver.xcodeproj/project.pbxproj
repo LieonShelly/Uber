@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		32AA0545EF55132E1E1995EC /* Pods_UberDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F7634AC67FEF674F6B539D /* Pods_UberDriver.framework */; };
+		CD15DE6E1E843AE500E9DEA0 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15DE621E843AE500E9DEA0 /* Common.swift */; };
+		CD15DE6F1E843AE500E9DEA0 /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15DE631E843AE500E9DEA0 /* DBProvider.swift */; };
+		CD15DE701E843AE500E9DEA0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15DE641E843AE500E9DEA0 /* Extension.swift */; };
+		CD15DE721E843AE500E9DEA0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15DE691E843AE500E9DEA0 /* SignInViewController.swift */; };
+		CD15DE731E843AE500E9DEA0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15DE6C1E843AE500E9DEA0 /* AuthViewModel.swift */; };
+		CD15DE761E843B3D00E9DEA0 /* DriverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15DE751E843B3D00E9DEA0 /* DriverVC.swift */; };
 		CD64CAB21E82D05000AB11D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD64CAB11E82D05000AB11D0 /* AppDelegate.swift */; };
-		CD64CAB41E82D05000AB11D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD64CAB31E82D05000AB11D0 /* ViewController.swift */; };
 		CD64CAB71E82D05000AB11D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64CAB51E82D05000AB11D0 /* Main.storyboard */; };
 		CD64CABA1E82D05000AB11D0 /* UberDriver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD64CAB81E82D05000AB11D0 /* UberDriver.xcdatamodeld */; };
 		CD64CABC1E82D05000AB11D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD64CABB1E82D05000AB11D0 /* Assets.xcassets */; };
@@ -20,9 +25,14 @@
 /* Begin PBXFileReference section */
 		94F7634AC67FEF674F6B539D /* Pods_UberDriver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberDriver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E4B38F0FEAF576BDBC5720 /* Pods-UberDriver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberDriver.release.xcconfig"; path = "Pods/Target Support Files/Pods-UberDriver/Pods-UberDriver.release.xcconfig"; sourceTree = "<group>"; };
+		CD15DE621E843AE500E9DEA0 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		CD15DE631E843AE500E9DEA0 /* DBProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
+		CD15DE641E843AE500E9DEA0 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		CD15DE691E843AE500E9DEA0 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CD15DE6C1E843AE500E9DEA0 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		CD15DE751E843B3D00E9DEA0 /* DriverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverVC.swift; sourceTree = "<group>"; };
 		CD64CAAE1E82D05000AB11D0 /* UberDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD64CAB11E82D05000AB11D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD64CAB31E82D05000AB11D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CD64CAB61E82D05000AB11D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD64CAB91E82D05000AB11D0 /* UberDriver.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UberDriver.xcdatamodel; sourceTree = "<group>"; };
 		CD64CABB1E82D05000AB11D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +71,72 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CD15DE601E843AE500E9DEA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CD15DE611E843AE500E9DEA0 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				CD15DE621E843AE500E9DEA0 /* Common.swift */,
+				CD15DE631E843AE500E9DEA0 /* DBProvider.swift */,
+				CD15DE641E843AE500E9DEA0 /* Extension.swift */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		CD15DE651E843AE500E9DEA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD15DE741E843B3D00E9DEA0 /* Driver */,
+				CD15DE681E843AE500E9DEA0 /* SignIn */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CD15DE681E843AE500E9DEA0 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CD15DE691E843AE500E9DEA0 /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CD15DE6A1E843AE500E9DEA0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CD15DE6B1E843AE500E9DEA0 /* SignIn */,
+				CD15DE6D1E843AE500E9DEA0 /* SignUp */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CD15DE6B1E843AE500E9DEA0 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CD15DE6C1E843AE500E9DEA0 /* AuthViewModel.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CD15DE6D1E843AE500E9DEA0 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CD15DE741E843B3D00E9DEA0 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				CD15DE751E843B3D00E9DEA0 /* DriverVC.swift */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
 		CD64CAA51E82D05000AB11D0 = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +159,10 @@
 			isa = PBXGroup;
 			children = (
 				CD64CAB11E82D05000AB11D0 /* AppDelegate.swift */,
-				CD64CAB31E82D05000AB11D0 /* ViewController.swift */,
+				CD15DE601E843AE500E9DEA0 /* Model */,
+				CD15DE651E843AE500E9DEA0 /* View */,
+				CD15DE6A1E843AE500E9DEA0 /* ViewModel */,
+				CD15DE611E843AE500E9DEA0 /* Vendor */,
 				CD64CAB51E82D05000AB11D0 /* Main.storyboard */,
 				CD64CABB1E82D05000AB11D0 /* Assets.xcassets */,
 				CD64CABD1E82D05000AB11D0 /* LaunchScreen.storyboard */,
@@ -218,9 +297,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD64CAB41E82D05000AB11D0 /* ViewController.swift in Sources */,
+				CD15DE6E1E843AE500E9DEA0 /* Common.swift in Sources */,
+				CD15DE6F1E843AE500E9DEA0 /* DBProvider.swift in Sources */,
+				CD15DE701E843AE500E9DEA0 /* Extension.swift in Sources */,
+				CD15DE721E843AE500E9DEA0 /* SignInViewController.swift in Sources */,
 				CD64CAB21E82D05000AB11D0 /* AppDelegate.swift in Sources */,
 				CD64CABA1E82D05000AB11D0 /* UberDriver.xcdatamodeld in Sources */,
+				CD15DE761E843B3D00E9DEA0 /* DriverVC.swift in Sources */,
+				CD15DE731E843AE500E9DEA0 /* AuthViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +468,7 @@
 				CD64CAC51E82D05000AB11D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
