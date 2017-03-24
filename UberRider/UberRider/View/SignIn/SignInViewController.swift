@@ -20,6 +20,7 @@ class SignInViewController: UIViewController {
             if let message = message, !message.isEmpty {
                 self.show(title: "Problem in Authentication", message: message)
             } else {
+                RiderViewModel.riderAccount = email
                 self.showRiderVC()
             }
         }

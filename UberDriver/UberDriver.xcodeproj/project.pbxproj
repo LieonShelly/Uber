@@ -20,6 +20,7 @@
 		CD64CABC1E82D05000AB11D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD64CABB1E82D05000AB11D0 /* Assets.xcassets */; };
 		CD64CABF1E82D05000AB11D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64CABD1E82D05000AB11D0 /* LaunchScreen.storyboard */; };
 		CD64CAC71E82D0C500AB11D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD64CAC61E82D0C500AB11D0 /* GoogleService-Info.plist */; };
+		CD7657AF1E8518C800B6BCA5 /* DriverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7657AE1E8518C800B6BCA5 /* DriverViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		CD64CABE1E82D05000AB11D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD64CAC01E82D05000AB11D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD64CAC61E82D0C500AB11D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CD7657AE1E8518C800B6BCA5 /* DriverViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverViewModel.swift; sourceTree = "<group>"; };
 		E4892079C97A4B4661E410DE /* Pods-UberDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberDriver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UberDriver/Pods-UberDriver.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,8 +110,8 @@
 		CD15DE6A1E843AE500E9DEA0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CD7657AD1E8518B400B6BCA5 /* Driver */,
 				CD15DE6B1E843AE500E9DEA0 /* SignIn */,
-				CD15DE6D1E843AE500E9DEA0 /* SignUp */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -120,13 +122,6 @@
 				CD15DE6C1E843AE500E9DEA0 /* AuthViewModel.swift */,
 			);
 			path = SignIn;
-			sourceTree = "<group>";
-		};
-		CD15DE6D1E843AE500E9DEA0 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SignUp;
 			sourceTree = "<group>";
 		};
 		CD15DE741E843B3D00E9DEA0 /* Driver */ = {
@@ -171,6 +166,14 @@
 				CD64CAC61E82D0C500AB11D0 /* GoogleService-Info.plist */,
 			);
 			path = UberDriver;
+			sourceTree = "<group>";
+		};
+		CD7657AD1E8518B400B6BCA5 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				CD7657AE1E8518C800B6BCA5 /* DriverViewModel.swift */,
+			);
+			path = Driver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +304,7 @@
 				CD15DE6F1E843AE500E9DEA0 /* DBProvider.swift in Sources */,
 				CD15DE701E843AE500E9DEA0 /* Extension.swift in Sources */,
 				CD15DE721E843AE500E9DEA0 /* SignInViewController.swift in Sources */,
+				CD7657AF1E8518C800B6BCA5 /* DriverViewModel.swift in Sources */,
 				CD64CAB21E82D05000AB11D0 /* AppDelegate.swift in Sources */,
 				CD64CABA1E82D05000AB11D0 /* UberDriver.xcdatamodeld in Sources */,
 				CD15DE761E843B3D00E9DEA0 /* DriverVC.swift in Sources */,

@@ -12,12 +12,12 @@
 		CD15DE5D1E84291100E9DEA0 /* RiderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15DE5C1E84291100E9DEA0 /* RiderVC.swift */; };
 		CD15DE5F1E842ED000E9DEA0 /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15DE5E1E842ED000E9DEA0 /* DBProvider.swift */; };
 		CD64CA8F1E82CC5000AB11D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD64CA8E1E82CC5000AB11D0 /* AppDelegate.swift */; };
-		CD64CA911E82CC5000AB11D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD64CA901E82CC5000AB11D0 /* ViewController.swift */; };
 		CD64CA941E82CC5000AB11D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64CA921E82CC5000AB11D0 /* Main.storyboard */; };
 		CD64CA971E82CC5000AB11D0 /* UberRider.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD64CA951E82CC5000AB11D0 /* UberRider.xcdatamodeld */; };
 		CD64CA991E82CC5000AB11D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD64CA981E82CC5000AB11D0 /* Assets.xcassets */; };
 		CD64CA9C1E82CC5000AB11D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64CA9A1E82CC5000AB11D0 /* LaunchScreen.storyboard */; };
 		CD64CAA41E82CCCC00AB11D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */; };
+		CDE181631E84F43500A741AB /* RiderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE181621E84F43500A741AB /* RiderViewModel.swift */; };
 		CDE9CF571E82D6CD002308CF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF561E82D6CD002308CF /* SignInViewController.swift */; };
 		CDE9CF5D1E82DA83002308CF /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF5C1E82DA83002308CF /* Common.swift */; };
 		CDE9CF611E82E094002308CF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF601E82E094002308CF /* Extension.swift */; };
@@ -31,13 +31,13 @@
 		CD15DE5E1E842ED000E9DEA0 /* DBProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		CD64CA8B1E82CC5000AB11D0 /* UberRider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberRider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD64CA8E1E82CC5000AB11D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD64CA901E82CC5000AB11D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CD64CA931E82CC5000AB11D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD64CA961E82CC5000AB11D0 /* UberRider.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UberRider.xcdatamodel; sourceTree = "<group>"; };
 		CD64CA981E82CC5000AB11D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD64CA9B1E82CC5000AB11D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD64CA9D1E82CC5000AB11D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CDE181621E84F43500A741AB /* RiderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderViewModel.swift; sourceTree = "<group>"; };
 		CDE9CF561E82D6CD002308CF /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CDE9CF5C1E82DA83002308CF /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		CDE9CF601E82E094002308CF /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -107,7 +107,6 @@
 				CDE9CF4E1E82D627002308CF /* View */,
 				CDE9CF4F1E82D627002308CF /* ViewModel */,
 				CDE9CF5B1E82DA7A002308CF /* Vendor */,
-				CD64CA901E82CC5000AB11D0 /* ViewController.swift */,
 				CD64CA921E82CC5000AB11D0 /* Main.storyboard */,
 				CD64CA981E82CC5000AB11D0 /* Assets.xcassets */,
 				CD64CA9A1E82CC5000AB11D0 /* LaunchScreen.storyboard */,
@@ -116,6 +115,14 @@
 				CD64CA951E82CC5000AB11D0 /* UberRider.xcdatamodeld */,
 			);
 			path = UberRider;
+			sourceTree = "<group>";
+		};
+		CDE1815F1E84F41A00A741AB /* Rider */ = {
+			isa = PBXGroup;
+			children = (
+				CDE181621E84F43500A741AB /* RiderViewModel.swift */,
+			);
+			path = Rider;
 			sourceTree = "<group>";
 		};
 		CDE9CF4D1E82D627002308CF /* Model */ = {
@@ -137,6 +144,7 @@
 		CDE9CF4F1E82D627002308CF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CDE1815F1E84F41A00A741AB /* Rider */,
 				CDE9CF521E82D691002308CF /* SignIn */,
 			);
 			path = ViewModel;
@@ -296,8 +304,8 @@
 				CDE9CF571E82D6CD002308CF /* SignInViewController.swift in Sources */,
 				CD15DE5F1E842ED000E9DEA0 /* DBProvider.swift in Sources */,
 				CD64CA971E82CC5000AB11D0 /* UberRider.xcdatamodeld in Sources */,
+				CDE181631E84F43500A741AB /* RiderViewModel.swift in Sources */,
 				CDE9CF611E82E094002308CF /* Extension.swift in Sources */,
-				CD64CA911E82CC5000AB11D0 /* ViewController.swift in Sources */,
 				CD15DE5A1E84285F00E9DEA0 /* AuthViewModel.swift in Sources */,
 				CD64CA8F1E82CC5000AB11D0 /* AppDelegate.swift in Sources */,
 				CDE9CF5D1E82DA83002308CF /* Common.swift in Sources */,

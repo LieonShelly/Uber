@@ -20,6 +20,12 @@ class DBProvider {
     var ridersRef: FIRDatabaseReference {
         return dbRef.child(Constants.rider)
     }
+    var requestRef: FIRDatabaseReference {
+        return dbRef.child(Constants.uberRequest)
+    }
+    var requestAcceptedRef: FIRDatabaseReference {
+        return dbRef.child(Constants.uberAccepted)
+    }
     
     func saveUser(ID: String, email: String, password: String) {
         let data: [String: Any] = [Constants.email: email,

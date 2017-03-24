@@ -116,11 +116,20 @@
                                     <constraint firstAttribute="height" constant="300" id="RZk-xe-Pz4"/>
                                 </constraints>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROT-6U-mTS">
+                                <rect key="frame" x="152" y="394" width="71" height="30"/>
+                                <state key="normal" title="Call Driver"/>
+                                <connections>
+                                    <action selector="callDriverAction:" destination="hpG-cS-ViL" eventType="touchUpInside" id="udY-QB-SlH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ohK-Q0-N1S" secondAttribute="trailing" id="Df2-bQ-nIA"/>
                             <constraint firstItem="ohK-Q0-N1S" firstAttribute="top" secondItem="WQm-1a-e7d" secondAttribute="bottom" id="EER-gM-lC5"/>
+                            <constraint firstItem="ROT-6U-mTS" firstAttribute="centerX" secondItem="ohK-Q0-N1S" secondAttribute="centerX" id="ORd-aS-oLB"/>
+                            <constraint firstItem="ROT-6U-mTS" firstAttribute="top" secondItem="ohK-Q0-N1S" secondAttribute="bottom" constant="30" id="eTB-N9-zKa"/>
                             <constraint firstItem="ohK-Q0-N1S" firstAttribute="leading" secondItem="CFt-ZX-03f" secondAttribute="leading" id="ndn-ll-B1s"/>
                         </constraints>
                     </view>
@@ -137,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bre-rV-uyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2423" y="757"/>
+            <point key="canvasLocation" x="2421.5999999999999" y="756.97151424287858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3HK-Jt-kmc">
