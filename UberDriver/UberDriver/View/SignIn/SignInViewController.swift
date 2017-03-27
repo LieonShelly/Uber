@@ -20,6 +20,9 @@ class SignInViewController: UIViewController {
             if let message = message, !message.isEmpty {
                 self.show(title: "Problem in Authentication", message: message)
             } else {
+                DriverViewModel.driverAccount = email
+                self.emailTextField.text = ""
+                self.passwordTextField.text = ""
                 self.showRiderVC()
             }
         }
@@ -31,6 +34,9 @@ class SignInViewController: UIViewController {
             if let message = message, !message.isEmpty {
                 self.show(title: "Problem in Authentication", message: message)
             } else {
+                DriverViewModel.driverAccount = email
+                self.emailTextField.text = ""
+                self.passwordTextField.text = ""
                 self.showRiderVC()
             }
         }

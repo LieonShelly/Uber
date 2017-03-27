@@ -141,6 +141,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="callUberBtn" destination="ROT-6U-mTS" id="JHS-PT-rNd"/>
                         <outlet property="map" destination="ohK-Q0-N1S" id="wCF-oB-RwI"/>
                     </connections>
                 </viewController>

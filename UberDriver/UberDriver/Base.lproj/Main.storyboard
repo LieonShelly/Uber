@@ -103,9 +103,18 @@
                                     <constraint firstAttribute="height" constant="300" id="8xj-3E-mAg"/>
                                 </constraints>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwg-mu-hTg">
+                                <rect key="frame" x="145.5" y="404" width="85" height="30"/>
+                                <state key="normal" title="Cancle Uber"/>
+                                <connections>
+                                    <action selector="cancleUberAction:" destination="m8b-jL-ad5" eventType="touchUpInside" id="rGU-a1-wpe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vwg-mu-hTg" firstAttribute="centerX" secondItem="R5y-9D-7h0" secondAttribute="centerX" id="FkR-lh-osE"/>
+                            <constraint firstItem="vwg-mu-hTg" firstAttribute="top" secondItem="R5y-9D-7h0" secondAttribute="bottom" constant="40" id="GSH-YH-TWh"/>
                             <constraint firstAttribute="trailing" secondItem="R5y-9D-7h0" secondAttribute="trailing" id="H5k-mv-NUQ"/>
                             <constraint firstItem="R5y-9D-7h0" firstAttribute="leading" secondItem="vFw-4D-nKz" secondAttribute="leading" id="hD9-ms-9UI"/>
                             <constraint firstItem="R5y-9D-7h0" firstAttribute="top" secondItem="3d5-5w-ZbS" secondAttribute="bottom" id="j9F-NZ-iiX"/>
@@ -119,6 +128,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="acceptUberBtn" destination="vwg-mu-hTg" id="kS7-8S-h1g"/>
                         <outlet property="map" destination="R5y-9D-7h0" id="dDh-mP-W3Q"/>
                     </connections>
                 </viewController>

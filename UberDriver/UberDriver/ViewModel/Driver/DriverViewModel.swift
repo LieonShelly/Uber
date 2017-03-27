@@ -11,15 +11,52 @@ import FirebaseDatabase
 
 class DriverViewModel {
     static var driverAccount: String = ""
-    var driver: String = ""
+    var rider: String = ""
     var driverID: String = ""
-    
-    func observeMessageForDriver() {
+    var riderCancleAction: (() -> Void)?
+    var driverCancleAction: (() -> Void)?
+    func observeMessageForDriver(hasRiderAction: ((_ latitude: Double, _ longitude: Double) -> Void)?) {
         DBProvider.shared.requestRef.observe(.childAdded) { (snapshot, _) in
-            if let data = snapshot.value as? [String: Any], let latitude = data[Constants.latitude] as? Double,  let longitude = data[Constants.latitude] as? Double {
-                
+            if let data = snapshot.value as? [String: Any], let latitude = data[Constants.latitude] as? Double,  let longitude = data[Constants.longtitude] as? Double, let name = data[Constants.name] as? String {
+                hasRiderAction?(latitude, longitude)
+                self.rider = name
             }
         }
+        
+        DBProvider.shared.requestRef.observe(.childRemoved) { (snapshot, _) in
+            if let data = snapshot.value as? [String: Any], let name = data[Constants.name] as? String {
+                if self.rider == name {
+                    self.rider = ""
+                    self.riderCancleAction?()
+                }
+            }
+        }
+        
+        DBProvider.shared.requestAcceptedRef.observe(.childAdded, with: { snapshot in
+            if let data = snapshot.value as? [String: Any], let name = data[Constants.name] as? String {
+                if name == DriverViewModel.driverAccount {
+                    self.driverID = snapshot.key
+                }
+            }
+        })
+        DBProvider.shared.requestAcceptedRef.observe(.childRemoved, with: { snapshot in
+            if let data = snapshot.value as? [String: Any], let name = data[Constants.name] as? String {
+                if name == DriverViewModel.driverAccount {
+                    self.driverCancleAction?()
+                }
+            }
+        })
     }
 
+    func acceptUber(lati: Double, long: Double) {
+        let data: [String: Any] = [Constants.name: DriverViewModel.driverAccount,
+                                   Constants.latitude: lati,
+                                    Constants.longtitude: long]
+        DBProvider.shared.requestAcceptedRef.childByAutoId().setValue(data)
+    
+    }
+    
+    func cancleUberForDriver() {
+        DBProvider.shared.requestAcceptedRef.child(driverID).removeValue()
+    }
 }
