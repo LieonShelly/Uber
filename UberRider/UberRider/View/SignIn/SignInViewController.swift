@@ -15,27 +15,35 @@ class SignInViewController: UIViewController {
     fileprivate var signinVM: AuthViewModel = AuthViewModel()
     
     @IBAction func loginAction(_ sender: Any) {
-        guard let email = emailTextField.text, let password = passwordTextField.text else { return self.show(title: "Email or Password required", message: "Please enter email or password in textfield") }
-        signinVM.login(with: email, password: password) { [unowned self] message in
-            if let message = message, !message.isEmpty {
-                self.show(title: "Problem in Authentication", message: message)
-            } else {
-                RiderViewModel.riderAccount = email
-                self.showRiderVC()
+        if  let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail() {
+            signinVM.login(with: email, password: password) { [unowned self] message in
+                if let message = message, !message.isEmpty {
+                    self.show(title: "Problem in Authentication", message: message)
+                } else {
+                    RiderViewModel.riderAccount = email
+                    self.showRiderVC()
+                }
             }
+        } else {
+           self.show(title: "Email or Password required", message: "Please enter correct email or password in textfield")
         }
+        
     }
     
     @IBAction func signUpAction(_ sender: Any) {
-        guard let email = emailTextField.text, let password = passwordTextField.text else { return self.show(title: "Email or Password required", message: "Please enter email or password in textfield") }
-        signinVM.signup(with: email, password: password) { [unowned self] message in
-            if let message = message, !message.isEmpty {
-                self.show(title: "Problem in Authentication", message: message)
-            } else {
-                 RiderViewModel.riderAccount = email
-                self.showRiderVC()
+        if let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail() {
+            signinVM.signup(with: email, password: password) { [unowned self] message in
+                if let message = message, !message.isEmpty {
+                    self.show(title: "Problem in Authentication", message: message)
+                } else {
+                    RiderViewModel.riderAccount = email
+                    self.showRiderVC()
+                }
             }
+        } else {
+            return self.show(title: "Email or Password required", message: "Please enter email or password in textfield")
         }
+        
     }
     
     private func showRiderVC() {
