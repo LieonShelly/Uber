@@ -59,4 +59,16 @@ class DriverViewModel {
     func cancleUberForDriver() {
         DBProvider.shared.requestAcceptedRef.child(driverID).removeValue()
     }
+    
+    func updateDriverLocation(lati: Double, long: Double) {
+        DBProvider.shared.requestAcceptedRef.child(driverID).updateChildValues([Constants.latitude: lati, Constants.longtitude: long])
+    }
+    
+    func updateRiderLocation(action: @escaping (_ lati: Double, _ long: Double) -> Void) {
+        DBProvider.shared.requestRef.observe(.childChanged, with: { snapshot in
+            if let data = snapshot.value as? [String: Any], let lati = data[Constants.latitude] as? Double, let long = data[Constants.longtitude] as? Double {
+                action(lati, long)
+            }
+        })
+    }
 }

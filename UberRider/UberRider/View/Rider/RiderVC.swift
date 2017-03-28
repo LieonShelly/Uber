@@ -24,6 +24,10 @@ class RiderVC: UIViewController {
     fileprivate var timer = Timer()
     @IBAction func logout(_ sender: Any) {
         if authVM.isLogout {
+            if !canCallUber {
+                riderVM.cancleUber()
+                timer.invalidate()
+            }
            navigationController?.dismiss(animated: true, completion: nil)
         } else {
             show(title: "logout faild", message: "logout faild, please try again")
@@ -34,9 +38,11 @@ class RiderVC: UIViewController {
         if let location = riderLocation {
             if canCallUber {
                 riderVM.requestUber(latitude: location.latitude, longitude: location.longitude)
+                timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.updateRiderLocation), userInfo: nil, repeats: true)
             } else {
                 riderCancledRequest = true
                 riderVM.cancleUber()
+                timer.invalidate()
             }
         }
     }
@@ -45,6 +51,7 @@ class RiderVC: UIViewController {
         super.viewDidLoad()
         setupMap()
         observeRider()
+        updateDriverLocation()
     }
 
 }
@@ -57,6 +64,14 @@ extension RiderVC: CLLocationManagerDelegate {
             let region = MKCoordinateRegion(center: rider, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             map.setRegion(region, animated: true)
             map.removeAnnotations(map.annotations)
+            if let driver = driverLocation  {
+                if !canCallUber {
+                    let driverAnnotation = MKPointAnnotation()
+                    driverAnnotation.coordinate = driver
+                    driverAnnotation.title = "Driver An"
+                    map.addAnnotation(driverAnnotation)
+                }
+            }
             let annotion = MKPointAnnotation()
             annotion.coordinate = rider
             annotion.title = "Rider Annotation"
@@ -71,6 +86,7 @@ extension RiderVC {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        map.setUserTrackingMode(.none, animated: true)
     }
     
     fileprivate func observeRider() {
@@ -89,10 +105,24 @@ extension RiderVC {
                     self.show(title: "Uber acceped", message: "\(driverName) accepted your request")
                 } else {
                     self.riderVM.cancleUber()
+                    self.timer.invalidate()
                     self.show(title: "Uber cancled", message: "\(driverName) cancled Uber request")
                 }
             }
             self.riderCancledRequest = false 
+        }
+    }
+    
+    fileprivate func updateDriverLocation() {
+        riderVM.updateDriverLocation { (lati, long) in
+            self.driverLocation = CLLocationCoordinate2D(latitude: lati, longitude: long)
+            self.locationManager.startUpdatingLocation()
+        }
+    }
+    
+   @objc fileprivate func updateRiderLocation() {
+        if let location = riderLocation {
+            riderVM.updateRiderLocation(lati: location.latitude, long: location.longitude)
         }
     }
 }

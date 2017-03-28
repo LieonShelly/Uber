@@ -14,6 +14,7 @@ class RiderViewModel {
     var driver: String = ""
     var riderID: String = ""
     var driverAcceptAction: ((_ accepted: Bool, _ driverName: String) -> Void)?
+    
     func oberveMessageForRider(handler: @escaping (_ flag: Bool) -> Void)  {
         DBProvider.shared.requestRef.observe(FIRDataEventType.childAdded, with: { snapshot in
             if let data = snapshot.value as? [String: Any], let name = data[Constants.name] as? String {
@@ -63,5 +64,21 @@ class RiderViewModel {
     
     func cancleUber() {
         DBProvider.shared.requestRef.child(riderID).removeValue()
+    }
+    
+    func updateDriverLocation(driverUpdateLocationAction: ((_ lati: Double, _ long: Double) -> Void)?){
+        DBProvider.shared.requestAcceptedRef.observe(.childChanged, with: { snapshot in
+            if let data = snapshot.value as? [String: Any], let name = data[Constants.name] as? String {
+                if name == self.driver {
+                    if let lati = data[Constants.latitude] as? Double, let long = data[Constants.longtitude] as? Double {
+                        driverUpdateLocationAction?(lati, long)
+                    }
+                }
+            }
+        })
+    }
+    
+    func updateRiderLocation(lati: Double, long: Double) {
+        DBProvider.shared.requestRef.child(riderID).updateChildValues([Constants.latitude : lati, Constants.longtitude: long])
     }
 }
