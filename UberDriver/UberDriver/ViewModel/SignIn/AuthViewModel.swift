@@ -13,7 +13,7 @@ class AuthViewModel {
     func login(with email: String, password: String, completion: @escaping (_ msg: String?) -> Void) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
-                return  self.handle(error: error as? NSError, completion: completion)
+                return  self.handle(error: error as NSError?, completion: completion)
             }
             return completion(nil)
         })
@@ -22,7 +22,7 @@ class AuthViewModel {
     func signup(with email: String, password: String, completion: @escaping (_ msg: String? ) -> Void)  {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
-                return  self.handle(error: error as? NSError, completion: completion)
+                return  self.handle(error: error as NSError?, completion: completion)
             }
             if let uid = user?.uid, !uid.isEmpty {
                  DBProvider.shared.saveUser(ID: uid, email: email, password: password)
@@ -30,7 +30,7 @@ class AuthViewModel {
             }
         })
     }
-    
+
     var isLogout: Bool {
         if FIRAuth.auth()?.currentUser != nil {
             do {

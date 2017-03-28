@@ -9,10 +9,12 @@
 import UIKit
 
 class SignInViewController: UIViewController {
-
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var verticalCons: NSLayoutConstraint!
     @IBOutlet fileprivate weak var emailTextField: UITextField!
     @IBOutlet fileprivate weak var passwordTextField: UITextField!
     fileprivate var signinVM: AuthViewModel = AuthViewModel()
+    fileprivate var maxYcontainerView: CGFloat = 0
     
     @IBAction func loginAction(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail() {
@@ -49,7 +51,42 @@ class SignInViewController: UIViewController {
         }
         
     }
-    private func showRiderVC() {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShowAction(noti:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHideAction(noti:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+         maxYcontainerView = containerView.frame.maxY
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+}
+
+extension SignInViewController {
+    @objc fileprivate func keyboardWillShowAction(noti: Notification) {
+        guard let userInfo = noti.userInfo, let keyboardSize = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect else { return }
+        let keyboardHeight = keyboardSize.height
+        UIView.animate(withDuration: 0.25) {
+            self.verticalCons.constant = 0 - (keyboardHeight - (UIScreen.main.bounds.height - self.maxYcontainerView))
+            self.view.layoutIfNeeded()
+     }
+    }
+    
+   @objc fileprivate func keyboardWillHideAction(noti: Notification) {
+       UIView.animate(withDuration: 0.25) {
+            self.verticalCons.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    fileprivate func showRiderVC() {
         self.performSegue(withIdentifier: "DriverHome", sender: nil)
     }
 }

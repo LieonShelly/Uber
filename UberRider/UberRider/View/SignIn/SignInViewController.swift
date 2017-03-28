@@ -9,7 +9,10 @@
 import UIKit
 
 class SignInViewController: UIViewController {
-
+    @IBOutlet weak var containerView: UIView!
+    fileprivate var maxYContainerView: CGFloat = 0.0
+    @IBOutlet weak var verticalCons: NSLayoutConstraint!
+    fileprivate var originalTopDistance: CGFloat = 0
     @IBOutlet fileprivate weak var emailTextField: UITextField!
     @IBOutlet fileprivate weak var passwordTextField: UITextField!
     fileprivate var signinVM: AuthViewModel = AuthViewModel()
@@ -46,7 +49,46 @@ class SignInViewController: UIViewController {
         
     }
     
-    private func showRiderVC() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        originalTopDistance = verticalCons.constant
+        maxYContainerView = UIScreen.main.bounds.height - self.containerView.frame.maxY
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShowAction), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHideAction), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        verticalCons.constant = originalTopDistance
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+}
+
+extension SignInViewController {
+    static private var distance: CGFloat = 0
+    @objc fileprivate func keyboardWillShowAction(noti: Notification) {
+        guard let userInfo = noti.userInfo, let keyboardSize = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect else { return }
+        let keyboardHeight = keyboardSize.height
+        UIView.animate(withDuration: 0.25) {
+            self.verticalCons.constant = self.originalTopDistance
+            self.verticalCons.constant = self.originalTopDistance - (keyboardHeight - self.maxYContainerView)
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc fileprivate func keyboardWillHideAction() {
+        UIView.animate(withDuration: 0.25) {
+            self.verticalCons.constant = self.originalTopDistance
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    fileprivate  func showRiderVC() {
         self.performSegue(withIdentifier: "RiderHome", sender: nil)
     }
 }
+

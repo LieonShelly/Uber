@@ -13,7 +13,7 @@ class AuthViewModel {
     func login(with email: String, password: String, completion: @escaping (_ msg: String?) -> Void) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
-                return  self.handle(error: error as? NSError, completion: completion)
+                return  self.handle(error: error as NSError?, completion: completion)
             }
             return completion(nil)
         })
