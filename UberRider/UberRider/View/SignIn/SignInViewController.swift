@@ -23,6 +23,8 @@ class SignInViewController: UIViewController {
                 if let message = message, !message.isEmpty {
                     self.show(title: "Problem in Authentication", message: message)
                 } else {
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
                     RiderViewModel.riderAccount = email
                     self.showRiderVC()
                 }
@@ -39,6 +41,8 @@ class SignInViewController: UIViewController {
                 if let message = message, !message.isEmpty {
                     self.show(title: "Problem in Authentication", message: message)
                 } else {
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
                     RiderViewModel.riderAccount = email
                     self.showRiderVC()
                 }
@@ -49,8 +53,8 @@ class SignInViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         originalTopDistance = verticalCons.constant
         maxYContainerView = UIScreen.main.bounds.height - self.containerView.frame.maxY
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShowAction), name: NSNotification.Name.UIKeyboardWillShow, object: nil)

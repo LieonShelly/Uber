@@ -29,6 +29,7 @@
 		CD15DE591E84285F00E9DEA0 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		CD15DE5C1E84291100E9DEA0 /* RiderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderVC.swift; sourceTree = "<group>"; };
 		CD15DE5E1E842ED000E9DEA0 /* DBProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
+		CD2F4D641E8C03E100A563F2 /* Testfight.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Testfight.xcconfig; sourceTree = "<group>"; };
 		CD64CA8B1E82CC5000AB11D0 /* UberRider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberRider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD64CA8E1E82CC5000AB11D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD64CA931E82CC5000AB11D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 				CD64CA9A1E82CC5000AB11D0 /* LaunchScreen.storyboard */,
 				CD64CA9D1E82CC5000AB11D0 /* Info.plist */,
 				CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */,
+				CD2F4D641E8C03E100A563F2 /* Testfight.xcconfig */,
 				CD64CA951E82CC5000AB11D0 /* UberRider.xcdatamodeld */,
 			);
 			path = UberRider;

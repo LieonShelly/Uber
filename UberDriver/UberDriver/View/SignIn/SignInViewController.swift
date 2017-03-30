@@ -43,7 +43,7 @@ class SignInViewController: UIViewController {
                     DriverViewModel.driverAccount = email
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
-                    self.showRiderVC()
+                    self.showDriverVC()
                 }
             }
         } else {
@@ -52,11 +52,9 @@ class SignInViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShowAction(noti:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHideAction(noti:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-         maxYcontainerView = containerView.frame.maxY
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          oberserveKeyboard()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,6 +68,11 @@ class SignInViewController: UIViewController {
 }
 
 extension SignInViewController {
+    fileprivate func oberserveKeyboard() {
+          maxYcontainerView = containerView.frame.maxY
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShowAction(noti:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHideAction(noti:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
     @objc fileprivate func keyboardWillShowAction(noti: Notification) {
         guard let userInfo = noti.userInfo, let keyboardSize = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect else { return }
         let keyboardHeight = keyboardSize.height
@@ -86,7 +89,7 @@ extension SignInViewController {
         }
     }
     
-    fileprivate func showRiderVC() {
+    fileprivate func showDriverVC() {
         self.performSegue(withIdentifier: "DriverHome", sender: nil)
     }
 }
