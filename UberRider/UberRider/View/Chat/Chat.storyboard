@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ContactVC-->
+        <!--My Friends-->
         <scene sceneID="WAf-VH-GaS">
             <objects>
                 <viewController storyboardIdentifier="ContactVC" id="Oij-xV-c7R" customClass="ContactVC" customModule="UberRider" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +34,13 @@
                             <constraint firstItem="u5z-dT-MmR" firstAttribute="leading" secondItem="j8A-1V-KE4" secondAttribute="leading" id="fA7-hv-53K"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rtB-w5-mql"/>
+                    <navigationItem key="navigationItem" title="My Friends" id="2bb-ck-71t">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="Kcj-Ud-U0l">
+                            <connections>
+                                <action selector="backAction:" destination="Oij-xV-c7R" id="NxI-Hv-VAr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="u5z-dT-MmR" id="SSC-9D-5vy"/>
                     </connections>
@@ -42,6 +48,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d78-td-eNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1584.8" y="94.902548725637189"/>
+        </scene>
+        <!--ChatVC-->
+        <scene sceneID="D5o-iQ-Tnj">
+            <objects>
+                <viewController storyboardIdentifier="ChatVC" id="NvH-fh-lhL" customClass="ChatVC" customModule="UberRider" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fqz-oY-eXt"/>
+                        <viewControllerLayoutGuide type="bottom" id="4q1-M9-wF4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="txW-ey-ifY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AGg-nA-dzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2452" y="95"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vtv-g3-Hy2">

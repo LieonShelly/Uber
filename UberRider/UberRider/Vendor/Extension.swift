@@ -9,15 +9,16 @@
 import UIKit
 
 extension UIStoryboard {
-    static func findVC<T: UIViewController>(storyboardName name: String, identifier storyboardID: String? = nil) -> T where T: VCNameReusable {
-        if let id = storyboardID, id.isEmpty {
+    static func findVC<T: UIViewController>(storyboardName name: String, identifier storyboardID: String? = nil) -> T  {
+        if storyboardID == nil {
             guard let destVC = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController() as? T else {  fatalError("No named: \(name) storyboard") }
             return destVC
         }
-         guard let destVC = UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: T.identifier) as? T else {  fatalError("No named: \(name) storyboard") }
+         guard let id = storyboardID, let destVC = UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: id) as? T else {  fatalError("No named: \(name) storyboard") }
         return destVC
     }
 }
+
 extension UIViewController {
     func show(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

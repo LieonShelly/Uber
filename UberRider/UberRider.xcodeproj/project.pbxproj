@@ -17,6 +17,7 @@
 		CD64CA991E82CC5000AB11D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD64CA981E82CC5000AB11D0 /* Assets.xcassets */; };
 		CD64CA9C1E82CC5000AB11D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64CA9A1E82CC5000AB11D0 /* LaunchScreen.storyboard */; };
 		CD64CAA41E82CCCC00AB11D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */; };
+		CD96AF701E8F7FE700358B51 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD96AF6F1E8F7FE700358B51 /* ChatVC.swift */; };
 		CDE181631E84F43500A741AB /* RiderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE181621E84F43500A741AB /* RiderViewModel.swift */; };
 		CDE410C91E8E2B9A0000B2EE /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE410C81E8E2B9A0000B2EE /* Chat.storyboard */; };
 		CDE410CB1E8E2BC50000B2EE /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE410CA1E8E2BC50000B2EE /* ContactVC.swift */; };
@@ -46,6 +47,7 @@
 		CD64CA9B1E82CC5000AB11D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD64CA9D1E82CC5000AB11D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CD96AF6F1E8F7FE700358B51 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		CDE181621E84F43500A741AB /* RiderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderViewModel.swift; sourceTree = "<group>"; };
 		CDE410C81E8E2B9A0000B2EE /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		CDE410CA1E8E2BC50000B2EE /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE410C81E8E2B9A0000B2EE /* Chat.storyboard */,
+				CD96AF6F1E8F7FE700358B51 /* ChatVC.swift */,
 				CDE410CA1E8E2BC50000B2EE /* ContactVC.swift */,
 				CDE410CE1E8E37650000B2EE /* ContactCell.swift */,
 				CDE410CF1E8E37650000B2EE /* ContactCell.xib */,
@@ -353,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD96AF701E8F7FE700358B51 /* ChatVC.swift in Sources */,
 				CDE410D41E8E41C50000B2EE /* Contact.swift in Sources */,
 				CDE410D01E8E37650000B2EE /* ContactCell.swift in Sources */,
 				CDE9CF571E82D6CD002308CF /* SignInViewController.swift in Sources */,

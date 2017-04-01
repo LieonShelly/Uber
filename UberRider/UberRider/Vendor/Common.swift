@@ -46,10 +46,6 @@ struct StoryboardName {
     static let chat = "Chat"
 }
 
-struct StoryboardID {
-    static let contactVC = "ContactVC"
-}
-
 struct CellID {
     static let contactCellID = "contactCellID"
 }

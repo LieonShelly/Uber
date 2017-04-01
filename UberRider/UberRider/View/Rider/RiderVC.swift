@@ -48,8 +48,8 @@ class RiderVC: UIViewController {
     }
     
     @IBAction func toContactVC(_ sender: Any) {
-        let destVC: ContactVC = UIStoryboard.findVC(storyboardName: StoryboardName.chat)
-        navigationController?.pushViewController(destVC, animated: true)
+        let destVC: UINavigationController = UIStoryboard.findVC(storyboardName: StoryboardName.chat)
+        present(destVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
