@@ -18,6 +18,14 @@
 		CD64CA9C1E82CC5000AB11D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64CA9A1E82CC5000AB11D0 /* LaunchScreen.storyboard */; };
 		CD64CAA41E82CCCC00AB11D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */; };
 		CDE181631E84F43500A741AB /* RiderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE181621E84F43500A741AB /* RiderViewModel.swift */; };
+		CDE410C91E8E2B9A0000B2EE /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE410C81E8E2B9A0000B2EE /* Chat.storyboard */; };
+		CDE410CB1E8E2BC50000B2EE /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE410CA1E8E2BC50000B2EE /* ContactVC.swift */; };
+		CDE410CD1E8E2F960000B2EE /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE410CC1E8E2F960000B2EE /* Protocol.swift */; };
+		CDE410D01E8E37650000B2EE /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE410CE1E8E37650000B2EE /* ContactCell.swift */; };
+		CDE410D11E8E37650000B2EE /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE410CF1E8E37650000B2EE /* ContactCell.xib */; };
+		CDE410D41E8E41C50000B2EE /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE410D31E8E41C50000B2EE /* Contact.swift */; };
+		CDE410D71E8E48730000B2EE /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE410D61E8E48730000B2EE /* ContactViewModel.swift */; };
+		CDE410D91E8E4CF30000B2EE /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE410D81E8E4CF30000B2EE /* Base.swift */; };
 		CDE9CF571E82D6CD002308CF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF561E82D6CD002308CF /* SignInViewController.swift */; };
 		CDE9CF5D1E82DA83002308CF /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF5C1E82DA83002308CF /* Common.swift */; };
 		CDE9CF611E82E094002308CF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE9CF601E82E094002308CF /* Extension.swift */; };
@@ -39,6 +47,14 @@
 		CD64CA9D1E82CC5000AB11D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CDE181621E84F43500A741AB /* RiderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderViewModel.swift; sourceTree = "<group>"; };
+		CDE410C81E8E2B9A0000B2EE /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		CDE410CA1E8E2BC50000B2EE /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
+		CDE410CC1E8E2F960000B2EE /* Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		CDE410CE1E8E37650000B2EE /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		CDE410CF1E8E37650000B2EE /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		CDE410D31E8E41C50000B2EE /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		CDE410D61E8E48730000B2EE /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		CDE410D81E8E4CF30000B2EE /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		CDE9CF561E82D6CD002308CF /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CDE9CF5C1E82DA83002308CF /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		CDE9CF601E82E094002308CF /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -127,9 +143,38 @@
 			path = Rider;
 			sourceTree = "<group>";
 		};
+		CDE410C71E8E2B750000B2EE /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				CDE410C81E8E2B9A0000B2EE /* Chat.storyboard */,
+				CDE410CA1E8E2BC50000B2EE /* ContactVC.swift */,
+				CDE410CE1E8E37650000B2EE /* ContactCell.swift */,
+				CDE410CF1E8E37650000B2EE /* ContactCell.xib */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		CDE410D21E8E41BA0000B2EE /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				CDE410D31E8E41C50000B2EE /* Contact.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		CDE410D51E8E48630000B2EE /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				CDE410D61E8E48730000B2EE /* ContactViewModel.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		CDE9CF4D1E82D627002308CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CDE410D81E8E4CF30000B2EE /* Base.swift */,
+				CDE410D21E8E41BA0000B2EE /* Chat */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +184,7 @@
 			children = (
 				CDE9CF501E82D667002308CF /* SignIn */,
 				CD15DE5B1E8428F900E9DEA0 /* Rider */,
+				CDE410C71E8E2B750000B2EE /* Chat */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,6 +192,7 @@
 		CDE9CF4F1E82D627002308CF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CDE410D51E8E48630000B2EE /* Chat */,
 				CDE1815F1E84F41A00A741AB /* Rider */,
 				CDE9CF521E82D691002308CF /* SignIn */,
 			);
@@ -172,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE9CF5C1E82DA83002308CF /* Common.swift */,
+				CDE410CC1E8E2F960000B2EE /* Protocol.swift */,
 				CDE9CF601E82E094002308CF /* Extension.swift */,
 				CD15DE5E1E842ED000E9DEA0 /* DBProvider.swift */,
 			);
@@ -241,9 +289,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE410D11E8E37650000B2EE /* ContactCell.xib in Resources */,
 				CD64CA9C1E82CC5000AB11D0 /* LaunchScreen.storyboard in Resources */,
 				CD64CAA41E82CCCC00AB11D0 /* GoogleService-Info.plist in Resources */,
 				CD64CA991E82CC5000AB11D0 /* Assets.xcassets in Resources */,
+				CDE410C91E8E2B9A0000B2EE /* Chat.storyboard in Resources */,
 				CD64CA941E82CC5000AB11D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,15 +353,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE410D41E8E41C50000B2EE /* Contact.swift in Sources */,
+				CDE410D01E8E37650000B2EE /* ContactCell.swift in Sources */,
 				CDE9CF571E82D6CD002308CF /* SignInViewController.swift in Sources */,
 				CD15DE5F1E842ED000E9DEA0 /* DBProvider.swift in Sources */,
 				CD64CA971E82CC5000AB11D0 /* UberRider.xcdatamodeld in Sources */,
 				CDE181631E84F43500A741AB /* RiderViewModel.swift in Sources */,
 				CDE9CF611E82E094002308CF /* Extension.swift in Sources */,
 				CD15DE5A1E84285F00E9DEA0 /* AuthViewModel.swift in Sources */,
+				CDE410CD1E8E2F960000B2EE /* Protocol.swift in Sources */,
 				CD64CA8F1E82CC5000AB11D0 /* AppDelegate.swift in Sources */,
 				CDE9CF5D1E82DA83002308CF /* Common.swift in Sources */,
+				CDE410D71E8E48730000B2EE /* ContactViewModel.swift in Sources */,
+				CDE410D91E8E4CF30000B2EE /* Base.swift in Sources */,
 				CD15DE5D1E84291100E9DEA0 /* RiderVC.swift in Sources */,
+				CDE410CB1E8E2BC50000B2EE /* ContactVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

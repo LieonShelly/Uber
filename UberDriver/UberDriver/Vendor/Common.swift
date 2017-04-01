@@ -18,7 +18,7 @@ struct LoginErrorCode {
 }
 
 class Constants {
-    static let driver = "driver"
+    static let user = "user"
     static let email = "email"
     static let password = "passwrod"
     static let data = "data"

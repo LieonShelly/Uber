@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 
 class DBProvider {
     private static let _intance = DBProvider()
@@ -18,7 +19,7 @@ class DBProvider {
         return FIRDatabase.database().reference()
     }
     var driverRef: FIRDatabaseReference {
-        return dbRef.child(Constants.driver)
+        return dbRef.child(Constants.user)
     }
     
     var requestRef: FIRDatabaseReference {

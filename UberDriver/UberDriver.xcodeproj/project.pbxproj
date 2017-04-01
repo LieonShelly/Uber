@@ -211,6 +211,7 @@
 				TargetAttributes = {
 					CD64CAAD1E82D05000AB11D0 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = EKNZB7E944;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -432,6 +433,7 @@
 			baseConfigurationReference = E4892079C97A4B4661E410DE /* Pods-UberDriver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EKNZB7E944;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UberDriver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -446,6 +448,7 @@
 			baseConfigurationReference = 95E4B38F0FEAF576BDBC5720 /* Pods-UberDriver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EKNZB7E944;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UberDriver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

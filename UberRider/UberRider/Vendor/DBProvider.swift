@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 
 class DBProvider {
     private static let _intance = DBProvider()
@@ -17,8 +18,8 @@ class DBProvider {
     var dbRef: FIRDatabaseReference {
         return FIRDatabase.database().reference()
     }
-    var ridersRef: FIRDatabaseReference {
-        return dbRef.child(Constants.rider)
+    var usersRef: FIRDatabaseReference {
+        return dbRef.child(Constants.user)
     }
     var requestRef: FIRDatabaseReference {
         return dbRef.child(Constants.uberRequest)
@@ -26,11 +27,29 @@ class DBProvider {
     var requestAcceptedRef: FIRDatabaseReference {
         return dbRef.child(Constants.uberAccepted)
     }
+    var contactRef: FIRDatabaseReference {
+        return  dbRef.child(Constants.contacts)
+    }
+    var messageRef: FIRDatabaseReference {
+        return dbRef.child(Constants.messages)
+    }
+    var mediaMessageRef: FIRDatabaseReference {
+        return dbRef.child(Constants.mediaMessages)
+    }
+    var storageRef: FIRStorageReference {
+        return FIRStorage.storage().reference(forURL: "gs://uber-rider-7dafd.appspot.com")
+    }
+    var imgaeStorageRef: FIRStorageReference {
+        return storageRef.child(Constants.imageMessage)
+    }
+    var videoStorageRef: FIRStorageReference {
+        return storageRef.child(Constants.videoStorage)
+    }
     
     func saveUser(ID: String, email: String, password: String) {
         let data: [String: Any] = [Constants.email: email,
                                    Constants.password: password,
                                    Constants.isRider: true]
-        ridersRef.child(ID).child(Constants.data).setValue(data)
+        usersRef.child(ID).child(Constants.data).setValue(data)
     }
 }

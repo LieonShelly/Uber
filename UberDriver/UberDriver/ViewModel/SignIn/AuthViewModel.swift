@@ -43,6 +43,10 @@ class AuthViewModel {
         return true
     }
     
+    var userID: String {
+            return FIRAuth.auth()?.currentUser?.uid ?? ""
+    }
+    
     private func handle(error: NSError?, completion: (_ msg: String) -> Void) {
         if let error = error, let errCode = FIRAuthErrorCode(rawValue: error.code) {
             switch errCode {

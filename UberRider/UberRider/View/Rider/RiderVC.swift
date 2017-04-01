@@ -47,6 +47,11 @@ class RiderVC: UIViewController {
         }
     }
     
+    @IBAction func toContactVC(_ sender: Any) {
+        let destVC: ContactVC = UIStoryboard.findVC(storyboardName: StoryboardName.chat)
+        navigationController?.pushViewController(destVC, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()

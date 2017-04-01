@@ -18,6 +18,9 @@ class SignInViewController: UIViewController {
     fileprivate var signinVM: AuthViewModel = AuthViewModel()
     
     @IBAction func loginAction(_ sender: Any) {
+        //FIXME: 去掉测试的自动填入
+        emailTextField.text = "lieoncx@gmail.com"
+        passwordTextField.text = "123456"
         if  let email = emailTextField.text, let password = passwordTextField.text, email.isValidEmail() {
             signinVM.login(with: email, password: password) { [unowned self] message in
                 if let message = message, !message.isEmpty {

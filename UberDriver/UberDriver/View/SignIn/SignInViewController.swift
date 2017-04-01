@@ -25,7 +25,7 @@ class SignInViewController: UIViewController {
                     DriverViewModel.driverAccount = email
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
-                    self.showRiderVC()
+                    self.showDriverVC()
                 }
             }
         } else {

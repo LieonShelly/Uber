@@ -15,6 +15,9 @@ class AuthViewModel {
             if error != nil {
                 return  self.handle(error: error as NSError?, completion: completion)
             }
+            if let uid = user?.uid {
+                 UserInfo.shared.uid = uid
+            }
             return completion(nil)
         })
     }

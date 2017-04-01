@@ -8,4 +8,6 @@ target 'UberRider' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'ObjectMapper', '~> 2.2'
+  pod 'JSQMessagesViewController'
 end
