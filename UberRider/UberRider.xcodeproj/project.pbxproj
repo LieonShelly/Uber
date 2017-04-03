@@ -18,6 +18,7 @@
 		CD64CA9C1E82CC5000AB11D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64CA9A1E82CC5000AB11D0 /* LaunchScreen.storyboard */; };
 		CD64CAA41E82CCCC00AB11D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */; };
 		CD96AF701E8F7FE700358B51 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD96AF6F1E8F7FE700358B51 /* ChatVC.swift */; };
+		CDCAAE551E92B81E00EB9BFD /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCAAE541E92B81E00EB9BFD /* ChatViewModel.swift */; };
 		CDE181631E84F43500A741AB /* RiderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE181621E84F43500A741AB /* RiderViewModel.swift */; };
 		CDE410C91E8E2B9A0000B2EE /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE410C81E8E2B9A0000B2EE /* Chat.storyboard */; };
 		CDE410CB1E8E2BC50000B2EE /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE410CA1E8E2BC50000B2EE /* ContactVC.swift */; };
@@ -48,6 +49,7 @@
 		CD64CA9D1E82CC5000AB11D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD64CAA31E82CCCC00AB11D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD96AF6F1E8F7FE700358B51 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		CDCAAE541E92B81E00EB9BFD /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		CDE181621E84F43500A741AB /* RiderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderViewModel.swift; sourceTree = "<group>"; };
 		CDE410C81E8E2B9A0000B2EE /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		CDE410CA1E8E2BC50000B2EE /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE410D61E8E48730000B2EE /* ContactViewModel.swift */,
+				CDCAAE541E92B81E00EB9BFD /* ChatViewModel.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				CDE9CF571E82D6CD002308CF /* SignInViewController.swift in Sources */,
 				CD15DE5F1E842ED000E9DEA0 /* DBProvider.swift in Sources */,
 				CD64CA971E82CC5000AB11D0 /* UberRider.xcdatamodeld in Sources */,
+				CDCAAE551E92B81E00EB9BFD /* ChatViewModel.swift in Sources */,
 				CDE181631E84F43500A741AB /* RiderViewModel.swift in Sources */,
 				CDE9CF611E82E094002308CF /* Extension.swift in Sources */,
 				CD15DE5A1E84285F00E9DEA0 /* AuthViewModel.swift in Sources */,

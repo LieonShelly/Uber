@@ -16,6 +16,6 @@ class Contact: Model {
     
     override func mapping(map: Map) {
         name <- map[Constants.email]
-        id <- map
+        id <- map[Constants.id]
     }
 }

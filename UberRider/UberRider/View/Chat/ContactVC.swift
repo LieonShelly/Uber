@@ -47,8 +47,8 @@ extension ContactVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let destVC: ChatVC  = UIStoryboard.findVC(storyboardName: StoryboardName.chat, identifier: ChatVC.identifier)
         if indexPath.row < contactVM.contacts.count - 1 {
-            destVC.senderId = contactVM.contacts[indexPath.row].id ?? ""
-            destVC.senderDisplayName = contactVM.contacts[indexPath.row].name ?? ""
+            destVC.tofriendID = contactVM.contacts[indexPath.row].id ?? ""
+            destVC.tofriendName = contactVM.contacts[indexPath.row].name ?? ""
             navigationController?.pushViewController(destVC, animated: true)
         }
         

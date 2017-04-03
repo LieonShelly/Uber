@@ -41,7 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You need to your photo library</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>You need authenticate yout location</string>
+	<key>NSCameraUsageDescription</key>
+	<string>You need to opne your camera</string>
 </dict>
 </plist>

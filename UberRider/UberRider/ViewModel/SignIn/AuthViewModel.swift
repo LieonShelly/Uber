@@ -17,6 +17,7 @@ class AuthViewModel {
             }
             if let uid = user?.uid {
                  UserInfo.shared.uid = uid
+                UserInfo.shared.userName = email
             }
             return completion(nil)
         })

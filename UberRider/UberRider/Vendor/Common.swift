@@ -39,6 +39,12 @@ class Constants {
     static let senderName = "sender_name"
     static let URL = "url"
     static let id = "id"
+    static let fromID = "from_id"
+    static let fromName = "from_name"
+    static let toFriends = "to_friends"
+    static let toID = "to_id"
+    static let toName = "to_name"
+    
 }
 
 struct StoryboardName {
@@ -60,4 +66,5 @@ class UserInfo: NSObject {
         return instance
     }
     var uid: String = ""
+    var userName = ""
 }
