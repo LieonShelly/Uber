@@ -10,6 +10,7 @@ import UIKit
 import JSQMessagesViewController
 import MobileCoreServices
 import AVKit
+import Kingfisher
 
 class ChatVC: JSQMessagesViewController {
     var tofriendName: String?
@@ -39,15 +40,18 @@ class ChatVC: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        if let toid = tofriendID, let toname = tofriendName {
-            chatVM.sendMessage(senderID: senderId, senderName: senderDisplayName, toFrend: toname, friendID: toid, text: text)
-        }
+        chatVM.sendMessage(senderID: senderId, senderName: senderDisplayName, text: text)
         finishSendingMessage()
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let bubbleFactory = JSQMessagesBubbleImageFactory()
-        return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.blue)
+        let message = messages[indexPath.item]
+        if message.senderId == self.senderId {
+            return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.blue)
+        } else {
+            return bubbleFactory?.incomingMessagesBubbleImage(with: UIColor.blue)
+        }
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
@@ -88,11 +92,13 @@ class ChatVC: JSQMessagesViewController {
 
 extension ChatVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage, let img = JSQPhotoMediaItem(image: image){
-            messages.append(JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: img))
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage, let imageData = UIImageJPEGRepresentation(image, 0.01), let imageMedia = JSQPhotoMediaItem(image: image) {
+            messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: imageMedia))
+            chatVM.sendMediaMessage(senderID: senderId, senderName: senderDisplayName, image: imageData, video: nil)
         }
         if let videoUrl = info[UIImagePickerControllerMediaURL] as? URL, let video = JSQVideoMediaItem(fileURL: videoUrl, isReadyToPlay: true){
             messages.append(JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: video))
+            chatVM.sendMediaMessage(senderID: senderId, senderName: senderDisplayName, image: nil, video: videoUrl)
         }
         picker.dismiss(animated: true, completion: nil)
         collectionView.reloadData()
@@ -107,14 +113,28 @@ extension ChatVC {
     }
     
     fileprivate  func loadData() {
-        chatVM.observeTextMessage(senderID: senderId) { message in
-            guard let senderID = message[Constants.senderID] as? String, let senderDisplayName = message[Constants.senderName] as? String, let toFriendName = message[Constants.toName] as? String, let toID = message[Constants.toID] as? String, let text = message[Constants.text] as? String else { return }
-            if self.senderId == senderID {
-                self.messages.append(JSQMessage(senderId: self.senderId, displayName: senderDisplayName, text: text))
-            } else {
-                self.messages.append(JSQMessage(senderId: toID, displayName: toFriendName, text: text))
+        chatVM.observeTextMessage { message in
+            guard let senderID = message[Constants.senderID] as? String, let senderDisplayName = message[Constants.senderName] as? String, let text = message[Constants.text] as? String else { return }
+            if senderID != self.senderId || senderID != self.tofriendID {
+                return
             }
+           self.messages.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
             self.collectionView.reloadData()
+        }
+        chatVM.oberserMediaMessage { message in
+            guard let senderID = message[Constants.senderID] as? String, let senderDisplayName = message[Constants.senderName] as? String, let urlStr = message[Constants.URL] as? String, let url = URL(string: urlStr) else { return }
+            if senderID != self.senderId || senderID != self.tofriendID {
+                return
+            }
+            KingfisherManager.shared.downloader.downloadImage(with: url, options: nil, progressBlock: nil, completionHandler: { (image, error, _, _) in
+                if let image = image, let message = JSQMessage(senderId: senderID, displayName: senderDisplayName, media: JSQPhotoMediaItem(image: image)) {
+                    self.messages.append(message)
+                } else {
+                    guard let video = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true), let message = JSQMessage(senderId: senderID, displayName: senderDisplayName, media: video) else { return }
+                    self.messages.append(message)
+                }
+                self.collectionView.reloadData()
+            })
         }
     }
 }

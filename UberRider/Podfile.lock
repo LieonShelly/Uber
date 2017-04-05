@@ -41,6 +41,7 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - Kingfisher (3.5.1)
   - ObjectMapper (2.2.5)
 
 DEPENDENCIES:
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - JSQMessagesViewController
+  - Kingfisher (~> 3.0)
   - ObjectMapper (~> 2.2)
 
 SPEC CHECKSUMS:
@@ -63,8 +65,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Kingfisher: 12eeffeef42ea45b68c5e5acfe8ba9005b713ab4
   ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
 
-PODFILE CHECKSUM: 76d36bc08827fd9740af42c3df4eec238e47db36
+PODFILE CHECKSUM: 46daf1dd7997c073cfd1c8e3f93f7414ed915e83
 
 COCOAPODS: 1.2.0

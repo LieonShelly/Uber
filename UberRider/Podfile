@@ -10,4 +10,5 @@ target 'UberRider' do
   pod 'Firebase/Database'
   pod 'ObjectMapper', '~> 2.2'
   pod 'JSQMessagesViewController'
+    pod 'Kingfisher', '~> 3.0'
 end
