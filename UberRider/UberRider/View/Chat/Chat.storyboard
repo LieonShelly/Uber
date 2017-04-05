@@ -40,6 +40,11 @@
                                 <action selector="backAction:" destination="Oij-xV-c7R" id="NxI-Hv-VAr"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gDl-cU-cZS">
+                            <connections>
+                                <action selector="addAction:" destination="Oij-xV-c7R" id="wg9-Q0-AIg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="u5z-dT-MmR" id="SSC-9D-5vy"/>

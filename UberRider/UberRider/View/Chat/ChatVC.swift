@@ -47,6 +47,7 @@ class ChatVC: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let bubbleFactory = JSQMessagesBubbleImageFactory()
         let message = messages[indexPath.item]
+        print(message.senderId)
         if message.senderId == self.senderId {
             return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.blue)
         } else {
@@ -93,11 +94,9 @@ class ChatVC: JSQMessagesViewController {
 extension ChatVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage, let imageData = UIImageJPEGRepresentation(image, 0.01), let imageMedia = JSQPhotoMediaItem(image: image) {
-            messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: imageMedia))
             chatVM.sendMediaMessage(senderID: senderId, senderName: senderDisplayName, image: imageData, video: nil)
         }
         if let videoUrl = info[UIImagePickerControllerMediaURL] as? URL, let video = JSQVideoMediaItem(fileURL: videoUrl, isReadyToPlay: true){
-            messages.append(JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: video))
             chatVM.sendMediaMessage(senderID: senderId, senderName: senderDisplayName, image: nil, video: videoUrl)
         }
         picker.dismiss(animated: true, completion: nil)
@@ -115,26 +114,42 @@ extension ChatVC {
     fileprivate  func loadData() {
         chatVM.observeTextMessage { message in
             guard let senderID = message[Constants.senderID] as? String, let senderDisplayName = message[Constants.senderName] as? String, let text = message[Constants.text] as? String else { return }
-            if senderID != self.senderId || senderID != self.tofriendID {
-                return
+            if senderID == self.senderId || senderID == self.tofriendID {
+                self.messages.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
+                self.collectionView.reloadData()
             }
-           self.messages.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
-            self.collectionView.reloadData()
+          
         }
         chatVM.oberserMediaMessage { message in
             guard let senderID = message[Constants.senderID] as? String, let senderDisplayName = message[Constants.senderName] as? String, let urlStr = message[Constants.URL] as? String, let url = URL(string: urlStr) else { return }
-            if senderID != self.senderId || senderID != self.tofriendID {
-                return
-            }
-            KingfisherManager.shared.downloader.downloadImage(with: url, options: nil, progressBlock: nil, completionHandler: { (image, error, _, _) in
-                if let image = image, let message = JSQMessage(senderId: senderID, displayName: senderDisplayName, media: JSQPhotoMediaItem(image: image)) {
-                    self.messages.append(message)
-                } else {
-                    guard let video = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true), let message = JSQMessage(senderId: senderID, displayName: senderDisplayName, media: video) else { return }
-                    self.messages.append(message)
+            if senderID == self.senderId || senderID == self.tofriendID {
+                do {
+                    let data = try Data(contentsOf: url)
+                    if let _ = UIImage(data: data) {
+                        KingfisherManager.shared.downloader.downloadImage(with: url, options: nil, progressBlock: nil, completionHandler: { (image, error, _, _) in
+                            if let image = image, let photo = JSQPhotoMediaItem(image: image), let message = JSQMessage(senderId: senderID, displayName: senderDisplayName, media: photo) {
+                                if self.senderId == senderID {
+                                    photo.appliesMediaViewMaskAsOutgoing = true
+                                } else {
+                                    photo.appliesMediaViewMaskAsOutgoing = false
+                                }
+                                self.messages.append(message)
+                            }
+                            self.collectionView.reloadData()
+                        })
+                    } else {
+                        guard let video = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true), let message = JSQMessage(senderId: senderID, displayName: senderDisplayName, media: video) else { return }
+                        if self.senderId == senderID {
+                            video.appliesMediaViewMaskAsOutgoing = true
+                        } else {
+                            video.appliesMediaViewMaskAsOutgoing = false
+                        }
+                        self.messages.append(message)
+                    }
+                } catch {
+                    print(error)
                 }
-                self.collectionView.reloadData()
-            })
+            }
         }
     }
 }
