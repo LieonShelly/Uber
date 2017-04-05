@@ -93,10 +93,10 @@ class ChatVC: JSQMessagesViewController {
 
 extension ChatVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage, let imageData = UIImageJPEGRepresentation(image, 0.01), let imageMedia = JSQPhotoMediaItem(image: image) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage, let imageData = UIImageJPEGRepresentation(image, 0.01), let _ = JSQPhotoMediaItem(image: image) {
             chatVM.sendMediaMessage(senderID: senderId, senderName: senderDisplayName, image: imageData, video: nil)
         }
-        if let videoUrl = info[UIImagePickerControllerMediaURL] as? URL, let video = JSQVideoMediaItem(fileURL: videoUrl, isReadyToPlay: true){
+        if let videoUrl = info[UIImagePickerControllerMediaURL] as? URL, let _ = JSQVideoMediaItem(fileURL: videoUrl, isReadyToPlay: true){
             chatVM.sendMediaMessage(senderID: senderId, senderName: senderDisplayName, image: nil, video: videoUrl)
         }
         picker.dismiss(animated: true, completion: nil)
@@ -128,23 +128,26 @@ extension ChatVC {
                     if let _ = UIImage(data: data) {
                         KingfisherManager.shared.downloader.downloadImage(with: url, options: nil, progressBlock: nil, completionHandler: { (image, error, _, _) in
                             if let image = image, let photo = JSQPhotoMediaItem(image: image), let message = JSQMessage(senderId: senderID, displayName: senderDisplayName, media: photo) {
-                                if self.senderId == senderID {
-                                    photo.appliesMediaViewMaskAsOutgoing = true
-                                } else {
-                                    photo.appliesMediaViewMaskAsOutgoing = false
+                                
+                                    if self.senderId == senderID {
+                                        photo.appliesMediaViewMaskAsOutgoing = true
+                                    } else {
+                                        photo.appliesMediaViewMaskAsOutgoing = false
+                                    }
+                                    self.messages.append(message)
                                 }
-                                self.messages.append(message)
-                            }
-                            self.collectionView.reloadData()
+                                self.collectionView.reloadData()
+                                
                         })
                     } else {
                         guard let video = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true), let message = JSQMessage(senderId: senderID, displayName: senderDisplayName, media: video) else { return }
-                        if self.senderId == senderID {
-                            video.appliesMediaViewMaskAsOutgoing = true
-                        } else {
-                            video.appliesMediaViewMaskAsOutgoing = false
-                        }
-                        self.messages.append(message)
+                        
+                            if self.senderId == senderID {
+                                video.appliesMediaViewMaskAsOutgoing = true
+                            } else {
+                                video.appliesMediaViewMaskAsOutgoing = false
+                            }
+                            self.messages.append(message)
                     }
                 } catch {
                     print(error)
